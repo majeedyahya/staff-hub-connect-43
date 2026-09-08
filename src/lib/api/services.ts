@@ -112,9 +112,10 @@ function crud<T extends { id: number }>(
       const list = db[key] as unknown as T[];
       const idx = list.findIndex((i) => i.id === id);
       if (idx < 0) throw new ApiError("Record not found", 404);
-      list[idx] = { ...list[idx], ...data };
+      const updated = { ...list[idx], ...data } as T;
+      list[idx] = updated;
       writeDb(db);
-      return list[idx];
+      return updated;
     },
     async remove(id: number): Promise<void> {
       if (!USE_MOCK_API) {
