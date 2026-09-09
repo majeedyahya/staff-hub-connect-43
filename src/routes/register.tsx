@@ -32,7 +32,6 @@ interface FormState {
   confirm: string;
 }
 
-export default function noop() {}
 
 function RegisterPage() {
   const navigate = useNavigate();
