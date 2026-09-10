@@ -14,6 +14,8 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LeaveRouteImport } from './routes/leave'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +42,16 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
+  id: '/admin/approvals',
+  path: '/admin/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/leave': typeof LeaveRoute
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/leave': typeof LeaveRoute
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,37 @@ export interface FileRoutesById {
   '/leave': typeof LeaveRoute
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/leave' | '/portfolio' | '/register'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/leave'
+    | '/portfolio'
+    | '/register'
+    | '/admin/approvals'
+    | '/admin/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/leave' | '/portfolio' | '/register'
-  id: '__root__' | '/' | '/dashboard' | '/leave' | '/portfolio' | '/register'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/leave'
+    | '/portfolio'
+    | '/register'
+    | '/admin/approvals'
+    | '/admin/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/leave'
+    | '/portfolio'
+    | '/register'
+    | '/admin/approvals'
+    | '/admin/users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +117,8 @@ export interface RootRouteChildren {
   LeaveRoute: typeof LeaveRoute
   PortfolioRoute: typeof PortfolioRoute
   RegisterRoute: typeof RegisterRoute
+  AdminApprovalsRoute: typeof AdminApprovalsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/approvals': {
+      id: '/admin/approvals'
+      path: '/admin/approvals'
+      fullPath: '/admin/approvals'
+      preLoaderRoute: typeof AdminApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   LeaveRoute: LeaveRoute,
   PortfolioRoute: PortfolioRoute,
   RegisterRoute: RegisterRoute,
+  AdminApprovalsRoute: AdminApprovalsRoute,
+  AdminUsersRoute: AdminUsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
