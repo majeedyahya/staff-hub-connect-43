@@ -55,12 +55,12 @@ function LeavePage() {
     e.preventDefault();
     if (!user) return;
     const next: Record<string, string> = {};
-    if (!form.leave_type) next.leave_type = "Choose a leave type.";
-    if (!form.start_date) next.start_date = "Start date is required.";
-    if (!form.end_date) next.end_date = "End date is required.";
+    if (!form.leave_type) next["leave_type"] = "Choose a leave type.";
+    if (!form.start_date) next["start_date"] = "Start date is required.";
+    if (!form.end_date) next["end_date"] = "End date is required.";
     if (form.start_date && form.end_date && form.end_date < form.start_date)
-      next.end_date = "End date must be after the start date.";
-    if (form.reason.trim().length < 5) next.reason = "Give a short reason (5+ characters).";
+      next["end_date"] = "End date must be after the start date.";
+    if (form.reason.trim().length < 5) next["reason"] = "Give a short reason (5+ characters).";
     setErrors(next);
     setSaved(false);
     if (Object.keys(next).length) return;
