@@ -15,6 +15,11 @@ import { Route as LeaveRouteImport } from './routes/leave'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
+import { Route as AdminDepartmentsRouteImport } from './routes/admin.departments'
+import { Route as AdminLeaveTypesRouteImport } from './routes/admin.leave-types'
+import { Route as AdminLeavesRouteImport } from './routes/admin.leaves'
+import { Route as AdminPortfoliosRouteImport } from './routes/admin.portfolios'
+import { Route as AdminRolesRouteImport } from './routes/admin.roles'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +52,31 @@ const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
   path: '/admin/approvals',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDepartmentsRoute = AdminDepartmentsRouteImport.update({
+  id: '/admin/departments',
+  path: '/admin/departments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLeaveTypesRoute = AdminLeaveTypesRouteImport.update({
+  id: '/admin/leave-types',
+  path: '/admin/leave-types',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLeavesRoute = AdminLeavesRouteImport.update({
+  id: '/admin/leaves',
+  path: '/admin/leaves',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPortfoliosRoute = AdminPortfoliosRouteImport.update({
+  id: '/admin/portfolios',
+  path: '/admin/portfolios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/admin/roles',
+  path: '/admin/roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
   id: '/admin/users',
   path: '/admin/users',
@@ -60,6 +90,11 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
   '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/leave-types': typeof AdminLeaveTypesRoute
+  '/admin/leaves': typeof AdminLeavesRoute
+  '/admin/portfolios': typeof AdminPortfoliosRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +104,11 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
   '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/leave-types': typeof AdminLeaveTypesRoute
+  '/admin/leaves': typeof AdminLeavesRoute
+  '/admin/portfolios': typeof AdminPortfoliosRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRoutesById {
@@ -79,6 +119,11 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/register': typeof RegisterRoute
   '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/leave-types': typeof AdminLeaveTypesRoute
+  '/admin/leaves': typeof AdminLeavesRoute
+  '/admin/portfolios': typeof AdminPortfoliosRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +135,11 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/register'
     | '/admin/approvals'
+    | '/admin/departments'
+    | '/admin/leave-types'
+    | '/admin/leaves'
+    | '/admin/portfolios'
+    | '/admin/roles'
     | '/admin/users'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +149,11 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/register'
     | '/admin/approvals'
+    | '/admin/departments'
+    | '/admin/leave-types'
+    | '/admin/leaves'
+    | '/admin/portfolios'
+    | '/admin/roles'
     | '/admin/users'
   id:
     | '__root__'
@@ -108,6 +163,11 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/register'
     | '/admin/approvals'
+    | '/admin/departments'
+    | '/admin/leave-types'
+    | '/admin/leaves'
+    | '/admin/portfolios'
+    | '/admin/roles'
     | '/admin/users'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +178,11 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   RegisterRoute: typeof RegisterRoute
   AdminApprovalsRoute: typeof AdminApprovalsRoute
+  AdminDepartmentsRoute: typeof AdminDepartmentsRoute
+  AdminLeaveTypesRoute: typeof AdminLeaveTypesRoute
+  AdminLeavesRoute: typeof AdminLeavesRoute
+  AdminPortfoliosRoute: typeof AdminPortfoliosRoute
+  AdminRolesRoute: typeof AdminRolesRoute
   AdminUsersRoute: typeof AdminUsersRoute
 }
 
@@ -165,6 +230,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminApprovalsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/departments': {
+      id: '/admin/departments'
+      path: '/admin/departments'
+      fullPath: '/admin/departments'
+      preLoaderRoute: typeof AdminDepartmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/leave-types': {
+      id: '/admin/leave-types'
+      path: '/admin/leave-types'
+      fullPath: '/admin/leave-types'
+      preLoaderRoute: typeof AdminLeaveTypesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/leaves': {
+      id: '/admin/leaves'
+      path: '/admin/leaves'
+      fullPath: '/admin/leaves'
+      preLoaderRoute: typeof AdminLeavesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/portfolios': {
+      id: '/admin/portfolios'
+      path: '/admin/portfolios'
+      fullPath: '/admin/portfolios'
+      preLoaderRoute: typeof AdminPortfoliosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/roles': {
+      id: '/admin/roles'
+      path: '/admin/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/users': {
       id: '/admin/users'
       path: '/admin/users'
@@ -182,6 +282,11 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   RegisterRoute: RegisterRoute,
   AdminApprovalsRoute: AdminApprovalsRoute,
+  AdminDepartmentsRoute: AdminDepartmentsRoute,
+  AdminLeaveTypesRoute: AdminLeaveTypesRoute,
+  AdminLeavesRoute: AdminLeavesRoute,
+  AdminPortfoliosRoute: AdminPortfoliosRoute,
+  AdminRolesRoute: AdminRolesRoute,
   AdminUsersRoute: AdminUsersRoute,
 }
 export const routeTree = rootRouteImport
